@@ -1,9 +1,9 @@
-FROM golang:1.9.2-alpine3.7 as gcsfuse-builder
+FROM golang:1.11-alpine as gcsfuse-builder
 
 RUN apk add --update --no-cache git &&\
 		go get -v github.com/googlecloudplatform/gcsfuse
 
-FROM alpine:3.7
+FROM alpine:3.8
 
 RUN apk add --update --no-cache fuse ca-certificates && rm -rf /tmp/*
 
